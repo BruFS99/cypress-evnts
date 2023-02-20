@@ -23,3 +23,18 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+Cypress.Commands.add('getHeroes', (params) => {
+    cy.request({
+      method: 'GET',
+      url: 'http://gateway.marvel.com/v1/public/characters',
+      qs: {
+        ts: params.nowTimeStamp,
+        apikey: params.publicKey,
+        hash: params.hash,
+      },
+    }).then(response => {
+        const heroes = response;
+        return heroes;
+      })
+  })
