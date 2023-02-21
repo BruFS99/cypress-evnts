@@ -45,23 +45,7 @@ describe('Teste automatizado da tela principal', () => {
     })
   })
 
-  it('Teste função favoritar', () => {
-
-    cy.getHeroesList(keys).then(response => {
-
-      let heroes = (shuffle(response.body.data.results));
-
-      home.go(response);
-      home.typeHeroSearch(heroes);
-      home.checkCardInformation(heroes);
-      home.clickOnFavorite(heroes);
-      home.filterFavoriteHeroes();
-      home.checkCardInformation(heroes);
-
-    })
-  })
-
-  it('Teste função desfavoritar', () => {
+  it('Teste função favoritar e remover favorito', () => {
 
     cy.getHeroesList(keys).then(response => {
 
