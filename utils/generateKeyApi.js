@@ -1,19 +1,16 @@
 import CryptoJS from "crypto-js"
-require('dotenv/config');
 
 function generateKeys() {
   
-  const { REACT_APP_PUBLIC_KEY_API, REACT_APP_PRIVATE_KEY_API } = process.env
+  const ts = new Date().getTime()
 
-  const nowTimeStamp = new Date().getTime()
+  const publicKey = Cypress.env('PUBLIC_KEY_API');
+  const privateKey = Cypress.env('PRIVATE_KEY_API');
 
-  const publicKey = REACT_APP_PUBLIC_KEY_API;
-  const privateKey = REACT_APP_PRIVATE_KEY_API;
-
-  const hash = CryptoJS.MD5(`${nowTimeStamp}${REACT_APP_PRIVATE_KEY_API}${REACT_APP_PUBLIC_KEY_API}`)
+  const hash = CryptoJS.MD5(`${ts}${privateKey}${publicKey}`)
 
   return {
-    nowTimeStamp,
+    ts,
     publicKey,
     privateKey,
     hash,

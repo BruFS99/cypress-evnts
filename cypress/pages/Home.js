@@ -11,7 +11,7 @@ class Home {
   }
 
   typeHeroSearch(data) {
-    cy.get(inputHeroSearch).clear().type(data.name)
+    cy.get(inputHeroSearch).clear().type(data.name);
   }
 
 }

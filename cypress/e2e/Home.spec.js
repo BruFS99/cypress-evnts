@@ -1,15 +1,22 @@
-import { cyan } from "colorette"
 import { Home } from "../pages/Home"
 import generateKeys from "../../utils/generateKeyApi"
 
 describe('Teste automatizado da tela principal', () => {
 
-  const home = new Home()
-  const dadosapi = generateKeys()
+  const home = new Home();
+  const keys = generateKeys();
 
   it('Pesquisa por herói válido', () => {
-    home.go()
 
-    cy.getHeroes(dadosapi)
+    const shuffle = array => array[Math.floor(Math.random() * array.length)];
+
+    cy.getHeroesList(keys).then(response => {
+
+      let heroes = (shuffle(response.body.data.results));
+
+      home.go();
+      home.typeHeroSearch(heroes);
+
+    })
   })
 })
