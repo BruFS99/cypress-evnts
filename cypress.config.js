@@ -7,7 +7,7 @@ chromeWebSecurity: true,
   viewportHeight: 768,
   projectId: "au9tap",
   e2e: {
-    baseUrl: 'http://localhost:3000/',
+    baseUrl: 'https://chrigor-marvel-hero-app.netlify.app/',
     specPattern: 'cypress/e2e/**/*.{js,jsx,ts,tsx}',
   },
 });
