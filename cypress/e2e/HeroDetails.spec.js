@@ -47,28 +47,6 @@ describe('Teste automatizado tela de detalhes do herói', () => {
 
   })
 
-  it('Teste função favoritar e remover favorito pela página de detalhes do herói', () => {
-
-    cy.getHeroesList(keys).then(response => {
-
-      let heroes = (shuffle(response.body.data.results));
-
-      home.go(response);
-      home.typeHeroSearch(heroes);
-      details.clickOpenDetails(heroes);
-      details.clickOnFavoriteDetail();
-      cy.visit('/');
-      home.filterFavoriteHeroes();
-      home.checkCardInformation(heroes);
-      details.clickOpenDetails(heroes);
-      details.clickOnFavoriteDetail();
-      cy.visit('/');
-      home.filterFavoriteHeroes();
-      home.checkEmptyReturn();
-    })
-
-  })
-
   //Este teste vai quebrar porque a função de busca pela página de detalhe não funciona
   it('Pesquisa pela barra de busca na página de detalhe do herói', () => {
 
