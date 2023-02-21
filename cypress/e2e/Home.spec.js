@@ -14,9 +14,10 @@ describe('Teste automatizado da tela principal', () => {
 
       let heroes = (shuffle(response.body.data.results));
 
-      home.go();
+      home.go(response);
       home.typeHeroSearch(heroes);
-
+      home.checkCardInformation(heroes);
     })
   })
+  
 })
