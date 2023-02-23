@@ -169,9 +169,8 @@
     "yauzl": "^2.10.0"
   },
   "scripts": {
-    "cy:open": "cypress open",
-    "cy:run": "cypress run",
-    "cy:spec": "cypress run --spec"
+    "run": "npx cypress run",
+    "open": "npx cypress open" 
   },
   "author": "",
   "license": "ISC",
